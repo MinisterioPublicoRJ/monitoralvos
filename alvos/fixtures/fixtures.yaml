@@ -1,0 +1,60 @@
+- model: alvos.TipoRelacao
+  pk: 1
+  fields:
+    NomeRelacao: Filho
+- model: alvos.TipoRelacao
+  pk: 2
+  fields:
+    NomeRelacao: Esposa
+- model: alvos.TipoRelacao
+  pk: 3
+  fields:
+    NomeRelacao: Marido
+- model: alvos.TipoRelacao
+  pk: 4
+  fields:
+    NomeRelacao: Cunhado
+- model: alvos.TipoRelacao
+  pk: 5
+  fields:
+    NomeRelacao: Pai
+- model: alvos.TipoRelacao
+  pk: 6
+  fields:
+    NomeRelacao: Mãe
+- model: alvos.TipoRelacao
+  pk: 7
+  fields:
+    NomeRelacao: Comparsa
+- model: alvos.TipoDocumento
+  pk: 1
+  fields:
+    NomeDocumento: Comparsa
+- model: alvos.TipoDocumento
+  pk: 2
+  fields:
+    NomeDocumento: RG
+- model: alvos.TipoDocumento
+  pk: 3
+  fields:
+    NomeDocumento: CPF
+- model: alvos.TipoDocumento
+  pk: 4
+  fields:
+    NomeDocumento: RGPM
+- model: alvos.TipoDocumento
+  pk: 5
+  fields:
+    NomeDocumento: CNPJ
+- model: alvos.TipoProcedimento
+  pk: 1
+  fields:
+    NomeProcedimento: Inquérito Policial
+- model: alvos.TipoProcedimento
+  pk: 2
+  fields:
+    NomeProcedimento: Procedimento MPRJ
+- model: alvos.TipoProcedimento
+  pk: 3
+  fields:
+    NomeProcedimento: Procedimento TJRJ
