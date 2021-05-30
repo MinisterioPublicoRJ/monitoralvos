@@ -1,7 +1,11 @@
 asgiref==3.3.4
+certifi==2021.5.30
+chardet==4.0.0
 Django==3.2.3
 django-nested-admin==3.3.3
 flake8==3.9.2
+idna==2.10
+login-sca @ git+https://github.com/MinisterioPublicoRJ/login-sca@cf0969fa182d8b99d7b222993e14bb98533d6dae
 mccabe==0.6.1
 Pillow==8.2.0
 pycodestyle==2.7.0
@@ -9,5 +13,7 @@ pyflakes==2.3.1
 python-monkey-business==1.0.0
 pytz==2021.1
 PyYAML==5.4.1
+requests==2.25.1
 six==1.16.0
 sqlparse==0.4.1
+urllib3==1.26.5

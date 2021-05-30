@@ -71,6 +71,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'monitoralvos.wsgi.application'
 
+AUTHENTICATION_BACKENDS =[
+    'monitoralvos.backends.MprjBackend'
+]
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
