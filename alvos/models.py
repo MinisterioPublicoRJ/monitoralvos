@@ -15,6 +15,11 @@ VALIDATOR_EMAIL = EmailValidator(
     message = 'E-Mail inválido!',
     code='emailinvalido'
 )
+VALIDADOR_TELEFONE = RegexValidator(
+    r'\d{10,11}',
+    message='Informe telefone no formato 2199998888, entre 10 e 11 dígitos',
+    code='telinfalido'
+)
 
 
 class Pessoa(models.Model):
@@ -36,6 +41,11 @@ class Pessoa(models.Model):
         if self.nome:
             return self.nome
         return None
+
+
+class Anotacao(models.Model):
+    Pessoa = models.ForeignKey('Pessoa', on_delete=models.CASCADE)
+    Nota = models.TextField()
 
 
 class TipoDocumento(models.Model):
@@ -76,7 +86,7 @@ class Relacao(models.Model):
         if self.PessoaDe:
             return " ".join(
               (
-                str(self.NomeRelacao),
+                str(self.PessoaDe),
                 str(self.Tipo),
                 str(self.PessoaAte)
               )  
@@ -147,6 +157,7 @@ class Email(models.Model):
         max_length=255,
         validators=[VALIDATOR_EMAIL]
     )
+    Notas = models.TextField(blank=True, null=True)
     def __str__(self):
         if self.EMail:
             return self.EMail
@@ -162,3 +173,25 @@ class Ocorrencia(models.Model):
         if self.NumeroOcorrencia:
             return self.NumeroOcorrencia
         return None
+
+
+class Telefone(models.Model):
+    Pessoa = models.ForeignKey('Pessoa', on_delete=models.CASCADE)
+    numero = models.CharField(
+        max_length=11,
+        validators=[VALIDADOR_TELEFONE]
+    )
+    notas = models.TextField()
+
+
+class EntradaAgenda(models.Model):
+    TelefoneRelacioando = models.ForeignKey('Telefone', on_delete=models.CASCADE)
+    NomeEntrada = models.CharField(max_length=255)
+    PossivelAlvo = models.ForeignKey(
+        'Pessoa',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
+    )
+    NomePossivelAlvo = models.CharField(max_length=255, blank=True, null=True)
+    NomeArquivo = models.CharField(max_length=255, null=True, blank=True)
