@@ -195,3 +195,9 @@ class EntradaAgenda(models.Model):
     )
     NomePossivelAlvo = models.CharField(max_length=255, blank=True, null=True)
     NomeArquivo = models.CharField(max_length=255, null=True, blank=True)
+
+
+class Arquivo(models.Model):
+    Pessoa = models.ForeignKey('Pessoa', on_delete=models.CASCADE)
+    Arquivo = models.FileField()
+    Notas = models.TextField()

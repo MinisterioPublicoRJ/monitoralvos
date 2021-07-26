@@ -14,7 +14,13 @@ from .models import (
         Telefone,
         EntradaAgenda,
         TipoDocumento,
+        Arquivo,
 )
+
+
+class ArquivoInline(nested_admin.NestedTabularInline):
+    model = Arquivo
+    extra = 1
 
 
 class OcorrenciaInline(nested_admin.NestedTabularInline):
@@ -77,6 +83,7 @@ class PessoaAdmin(nested_admin.NestedModelAdmin):
 
     inlines = [
         AnotacaoInline,
+        ArquivoInline,
         OcorrenciaInline,
         EmailInline,
         RelacaoInline,
@@ -85,7 +92,34 @@ class PessoaAdmin(nested_admin.NestedModelAdmin):
         VeiculoInline,
         TelefoneInline
     ]
+
     readonly_fields = ['foto_tag']
+
+    list_display = [
+        'nome',
+        'nascimento',
+        'alvo',
+        'militar',
+        'policial'
+    ]
+
+    list_filter = [
+        'alvo',
+        'militar',
+        'policial'
+    ]
+
+    search_fields = (
+        'anotacao__Nota',
+        'nome',
+        'documento__numeracao',
+        'procedimento__Numeracao',
+        'veiculo__Placa',
+        'email__EMail',
+        'ocorrencia__NumeroOcorrencia',
+        'telefone__numero',
+        'arquivo__Notas'
+    )
 
 
 admin.site.register(Pessoa, PessoaAdmin)
