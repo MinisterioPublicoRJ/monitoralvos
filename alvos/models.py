@@ -16,8 +16,8 @@ VALIDATOR_EMAIL = EmailValidator(
     code='emailinvalido'
 )
 VALIDADOR_TELEFONE = RegexValidator(
-    r'\d{10,11}',
-    message='Informe telefone no formato 2199998888, entre 10 e 11 dígitos',
+    r'\d{10,}',
+    message='Informe telefone no formato 552199998888, com pelo menos 9 números',
     code='telinfalido'
 )
 
@@ -178,7 +178,7 @@ class Ocorrencia(models.Model):
 class Telefone(models.Model):
     Pessoa = models.ForeignKey('Pessoa', on_delete=models.CASCADE)
     numero = models.CharField(
-        max_length=11,
+        max_length=18,
         validators=[VALIDADOR_TELEFONE]
     )
     notas = models.TextField()

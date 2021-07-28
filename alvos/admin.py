@@ -15,6 +15,7 @@ from .models import (
         EntradaAgenda,
         TipoDocumento,
         Arquivo,
+        TipoRelacao,
 )
 
 
@@ -126,3 +127,4 @@ admin.site.register(Pessoa, PessoaAdmin)
 admin.site.register(MarcaVeiculo)
 admin.site.register(ModeloVeiculo)
 admin.site.register(TipoDocumento)
+admin.site.register(TipoRelacao)
